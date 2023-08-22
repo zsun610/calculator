@@ -15,7 +15,7 @@ function buttonClick(value){
 }
 
 function handleSymbol(symbol){
-  switch(symol){
+  switch(symbol){
     case 'C':
       buffer = '0';
       runningTotal = 0;
@@ -34,12 +34,12 @@ function handleSymbol(symbol){
         buffer = '0';
       }
       else{
-        buffer = buffer.toString(0, buffer.length - 1);
+        buffer = buffer.subString(0, buffer.length - 1);
       }
       break;
     case '+':
     case '-':
-    case 'x':
+    case '×':
     case '÷':
       handleMath(symbol);
       break;
@@ -70,7 +70,7 @@ function flushOperation(intBuffer){
   else if(previousOperator === '-'){
     runningTotal -= intBuffer;
   }
-  else if(previousOperator === 'x'){
+  else if(previousOperator === '×'){
     runningTotal *= intBuffer;
   }
   else if(previousOperator === '÷'){
@@ -83,7 +83,7 @@ function handleNumber(numberString){
     buffer = numberString;
   }
   else{
-    buffer += bumberString;
+    buffer += numberString;
   }
 }
 
